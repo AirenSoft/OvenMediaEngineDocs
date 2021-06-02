@@ -9,16 +9,24 @@
 This is an action to request a push of a selected stream. Please refer to the "Push" document for detail setting.  
   
 Request Example:  
-`GET http://1.2.3.4:8081/v1/vhosts/default/apps/app:startPush                                 
-{  
-  "id": "{UserDefinedUniqueId}",  
-  "stream": {  
-    "name": "output_stream_name",  
-    "tracks": [ 101, 102 ]  
+`POST http://1.2.3.4:8081/v1/vhosts/default/apps/app:startPush                                 
+{
+  
+  "id": "{UserDefinedUniqueId}",
+  
+  "stream": {
+  
+    "name": "output_stream_name",
+  
+    "tracks": [
+ 101,
+ 102 ]
+  
   },  
   "protocol": "rtmp",  
   "url":"rtmp://{host}[:port]/{appName}",  
-  "streamKey":"{streamName}"  
+  "streamKey":"{streamName}"
+  
 }`
 {% endapi-method-description %}
 
@@ -141,13 +149,15 @@ Destination stream key
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Stops recording for `Application`  
+Stops pushing for `Application`  
   
 Request Example:  
-`GET http://1.2.3.4:8081/v1/vhosts/default/apps/app:stopRecord  
+`POST http://1.2.3.4:8081/v1/vhosts/default/apps/app:stopPush  
   
-{  
-  "id": "{userDefinedUniqueId}"  
+{
+  
+  "id": "{userDefinedUniqueId}"
+  
 }`
 {% endapi-method-description %}
 
@@ -243,16 +253,16 @@ Unique identifier for push management
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="http://<OME\_HOST>:<API\_PORT>" path="/v1/vhosts/{vhost\_name}/apps/{app\_name}:pushes" %}
+{% api-method method="get" host="http://<OME\_HOST>:<API\_PORT>" path="/v1/vhosts/{vhost\_name}/apps/{app\_name}:pushes" %}
 {% api-method-summary %}
 /v1/vhosts/{vhost\_name}/apps/{app\_name}:pushes
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Lists all `Record` in the `Application`  
+Lists all `Push` in the `Application`  
   
 Request Example:  
-`POST http://1.2.3.4:8081/v1/vhosts/default/apps/app:pushes`
+`GET http://1.2.3.4:8081/v1/vhosts/default/apps/app:pushes`
 {% endapi-method-description %}
 
 {% api-method-spec %}
